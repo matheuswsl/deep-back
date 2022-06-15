@@ -12,7 +12,7 @@ export const typeormAsyncConfig: TypeOrmModuleAsyncOptions = {
             username: process.env.POSTGRES_USERNAME,
             password: process.env.POSTGRES_PASSWORD,
             entities: ['dist/models/**/*.entity.js'],
-            synchronize: true,
+            synchronize: process.env.IS_SYNC === 'true',
             migrations: ['*-migrations{.ts,.js}'],
             migrationsTableName: "custom_migration_table",
             migrationsRun: false,
